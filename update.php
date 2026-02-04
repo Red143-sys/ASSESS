@@ -16,18 +16,16 @@ $error = "";
 if (isset($_POST['update'])) {
     $idno = trim($_POST['idno']);
     $name = trim($_POST['name']);
-    $month = trim($_POST['month']);
-    $day = trim($_POST['day']);
-    $year = trim($_POST['year']);
+    $birthdate = trim($_post['birthdate']);
     $yearLevel = trim($_POST['yearLevel']);
     $section = trim($_POST['section']);
     $sex = trim($_POST['sex']);
 
-    if (empty($idno) || empty($name) || empty($month) || empty($day) || empty($year) || empty($yearLevel) || empty($section) || empty($sex)) {
+    if (empty($idno) || empty($name) || empty($birthdate) || empty($yearLevel) || empty($section) || empty($sex)) {
         $error = "All fields are required.";
     } else {
-        $stmt = $pdo->prepare("UPDATE students SET idno=?, name=?, month=?, day=?, year=?, yearLevel=?, section=?, sex=? WHERE id=?");
-        $stmt->execute([$idno, $name, $month, $day, $year, $yearLevel, $section, $sex, $id]);
+        $stmt = $pdo->prepare("UPDATE students SET idno=?, name=?, birthdate=?, yearLevel=?, section=?, sex=? WHERE id=?");
+        $stmt->execute([$idno, $name, $birthdate, $yearLevel, $section, $sex, $id]);
         header("Location: index.php");
         exit;
     }

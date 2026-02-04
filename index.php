@@ -55,19 +55,20 @@ $total_pages = ceil($total->fetchColumn() / $limit);
     <?php if ($students): ?>
         <?php $counter = ($page - 1) * $limit; ?>
         <?php foreach ($students as $student): ?>
-            <?php $counter++; $date = "{$student['month']}/{$student['day']}/{$student['year']}"; ?>
+            <?php $counter++; $date = $student['birthdate']??''; ?>
             <tr>
                 <td><?= $counter ?></td>
                 <td><?= htmlspecialchars($student['idno']) ?></td>
                 <td><?= htmlspecialchars($student['name']) ?></td>
-                <td><?= $date ?></td>
+                <td><?= htmlspecialchars($date) ?></td>
                 <td><?= htmlspecialchars($student['yearLevel']) ?></td>
                 <td><?= htmlspecialchars($student['section']) ?></td>
                 <td><?= htmlspecialchars($student['sex']) ?></td>
                 <td>
                 
                     <a href="update.php?id=<?= $student['id'] ?>" class="btn btn-warning btn-sm">Update</a>
-                    <a href="delete.php?id=<?= $student['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+                    <a href="delete.php?id=<?= $student['id'] ?>" class="btn btn-danger btn-sm" onclick="return 
+                    confirm('Are you sure you want to delete this student?');">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

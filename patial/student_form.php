@@ -1,7 +1,7 @@
 <?php
 // $student = array with existing data or empty array
 // $action = "Save" or "Update"
-// $submitName = name of the submit button, e.g., "save" or "update"
+// $submitName = name of the submit button
 ?>
 
 <?php if (!empty($error)): ?>
@@ -24,19 +24,9 @@
 
     <div class="row mb-3">
         <div class="col">
-            <label class="form-label">Date - Month</label>
-            <input type="number" name="month" class="form-control" min="1" max="12" required
-                   value="<?= htmlspecialchars($student['month'] ?? '') ?>">
-        </div>
-        <div class="col">
-            <label class="form-label">Date - Day</label>
-            <input type="number" name="day" class="form-control" min="1" max="31" required
-                   value="<?= htmlspecialchars($student['day'] ?? '') ?>">
-        </div>
-        <div class="col">
-            <label class="form-label">Date - Year</label>
-            <input type="number" name="year" class="form-control" required
-                   value="<?= htmlspecialchars($student['year'] ?? '') ?>">
+            <label class="form-label">Date - birthdate</label>
+            <input type="date" name="birthdte" class="form-control" min="1" max="12" required
+                   value="<?= htmlspecialchars($student['birthdate'] ?? '') ?>">
         </div>
     </div>
 
